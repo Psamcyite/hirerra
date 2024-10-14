@@ -1,4 +1,3 @@
-
 # Hirerra
 
 Hirerra is a platform that connects developers with employers for remote job opportunities. Built with cutting-edge technologies, Hirerra aims to simplify the hiring process and make it seamless for developers to showcase their skills and get hired by companies looking for remote talent.
@@ -10,6 +9,8 @@ Hirerra is a platform that connects developers with employers for remote job opp
 - [Installation](#installation)
 - [Docker Setup](#docker-setup)
 - [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
 
 ## Features
 
@@ -17,7 +18,7 @@ Hirerra is a platform that connects developers with employers for remote job opp
 - **Job Listings**: Employers can post job openings for remote positions across various domains.
 - **Search and Filter**: Advanced search and filtering options for developers to find the right jobs and for employers to discover talent.
 - **Application Management**: Developers can track the status of their job applications, and employers can manage applicants.
-- **Responsive Design**: A user-friendly interface optimized for both mobile and desktop, using Tailwind CSS for a modern UI.
+- **Responsive Design**: A user-friendly interface optimized for both mobile and desktop, using **Tailwind CSS** and **Shadcn** for a modern UI.
 
 ## Tech Stack
 
@@ -25,8 +26,10 @@ Hirerra is built using the following technologies:
 
 - **Next.js**: A React framework for server-side rendering and static site generation.
 - **React.js**: For building the user interface and creating reusable components.
-- **MongoDB**: NoSQL database for storing user profiles, job postings, and applications.
+- **Prisma**: An ORM (Object-Relational Mapping) tool for database queries with **PostgreSQL**.
+- **PostgreSQL**: A powerful relational database system for storing user profiles, job postings, and applications.
 - **Tailwind CSS**: A utility-first CSS framework for building responsive and modern UIs quickly.
+- **Shadcn**: A modern component library to enhance the user interface.
 - **Yarn**: Package manager for dependency management and project scripts.
 - **Docker**: For containerized development and deployment.
 
@@ -52,13 +55,21 @@ To get started with Hirerra locally using **Yarn**, follow these steps:
    yarn install
    ```
 
-4. Set up your environment variables. Create a `.env.local` file in the root directory and add your MongoDB connection string:
+4. Set up your environment variables. Create a `.env.local` file in the root directory with the following keys:
 
    ```bash
-   MONGODB_URI=your_mongodb_connection_string
+   DATABASE_URL=postgresql://user:password@localhost:5432/hirerra
    ```
 
-5. Run the development server:
+   Make sure to replace `user`, `password`, and `localhost:5432/hirerra` with your PostgreSQL credentials.
+
+5. Initialize the Prisma schema:
+
+   ```bash
+   npx prisma migrate dev --name init
+   ```
+
+6. Run the development server:
 
    ```bash
    yarn dev
@@ -78,7 +89,7 @@ If you prefer to run the application in a Docker container:
    docker build -t hirerra .
    ```
 
-3. Run the Docker container:
+3. Run the Docker container with the PostgreSQL environment variable:
 
    ```bash
    docker run -p 3000:3000 --env-file .env.local hirerra
