@@ -5,7 +5,7 @@ import { Banknote, Briefcase, Clock, Globe2, MapPin } from "lucide-react";
 import Image from "next/image";
 import Badge from "./Badge";
 
-interface JobRowProps {
+interface JobListItemProps {
   job: Job;
 }
 
@@ -20,7 +20,7 @@ export default function JobListItem({
     companyLogoUrl,
     createdAt,
   },
-}: JobRowProps) {
+}: JobListItemProps) {
   return (
     <article className="flex gap-3 rounded-lg border p-5 hover:bg-muted/60">
         <Image

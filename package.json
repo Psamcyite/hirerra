@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@clerk/nextjs": "^5.7.2",
+    "@clerk/nextjs": "^5.7.3",
     "@fortawesome/fontawesome-svg-core": "^6.6.0",
     "@fortawesome/free-brands-svg-icons": "^6.6.0",
     "@fortawesome/free-regular-svg-icons": "^6.6.0",
@@ -19,11 +19,11 @@
     "@prisma/client": "^5.20.0",
     "@radix-ui/react-label": "^2.1.0",
     "@radix-ui/react-slot": "^1.1.0",
-    "@types/react-draft-wysiwyg": "^1.13.8",
     "@vercel/blob": "^0.25.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
+    "draft-js": "^0.11.7",
     "eslint-config-prettier": "^9.1.0",
     "lucide-react": "^0.452.0",
     "markdown-draft-js": "^2.4.0",
@@ -42,9 +42,11 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@types/markdown-draft-js": "^2.2.7",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/react-draft-wysiwyg": "^1.13.8",
     "eslint": "^8",
     "eslint-config-next": "14.2.15",
     "postcss": "^8",
