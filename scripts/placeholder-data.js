@@ -1,4 +1,4 @@
-const placeholderJobs = [
+export const placeholderJobs = [
     {
       title: "Full-Stack Developer at Stripe",
       type: "Full-time",
@@ -155,21 +155,6 @@ const placeholderJobs = [
   OpenAI is committed to diversity in its workforce and is proud to be an equal opportunity employer.
   
   If you're passionate about AI and want to contribute to cutting-edge technology that impacts the world, join us at OpenAI!
-  `,
-    },
-    {
-      title: "Intern at Coding in Flow",
-      type: "Internship",
-      companyName: "Coding in Flow",
-      locationType: "Remote",
-      applicationUrl: "https://codinginflow.com",
-      slug: "intern-at-coding-in-flow-4",
-      salary: 500,
-      approved: true,
-      description: `
-  **Help build the best coding tutorials**
-  
-  I might not be able to pay you a lot, but I can offer you a lot of experience and a lot of fun. I'm looking for someone who is passionate about coding and wants to help me create the best coding tutorials on YouTube.
   `,
     },
     {
@@ -343,9 +328,5 @@ const placeholderJobs = [
   
   This is a fantastic opportunity for those looking to kickstart their career in web development while working for one of the most innovative companies in e-commerce. Join us at Shopify and help redefine commerce around the world!
   `,
-    },
-  ];
-  
-  module.exports = {
-    placeholderJobs,
-  };
+  },
+];

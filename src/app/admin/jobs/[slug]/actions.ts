@@ -2,7 +2,7 @@
 
 import prisma from "@/lib/prisma";
 import { isAdmin } from "@/lib/utils";
-import { currentUser } from "@clerk/nextjs";
+import { currentUser } from "@clerk/nextjs/server";
 import { del } from "@vercel/blob";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";

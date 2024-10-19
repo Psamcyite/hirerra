@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default async function AdminPage() {
   const unapprovedJobs = await prisma.job.findMany({
-    where: { approved: false },
+    where: { approved: true },
   });
 
   return (

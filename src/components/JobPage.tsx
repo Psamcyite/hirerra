@@ -22,6 +22,10 @@ export default function JobPage({
     companyLogoUrl,
   },
 }: JobPageProps) {
+
+  const defaultwidth = 100;
+  const defaultheight = 100;
+
   return (
     <section className="w-full grow space-y-5">
       <div className="flex items-center gap-3">
@@ -29,8 +33,8 @@ export default function JobPage({
           <Image
             src={companyLogoUrl}
             alt="Company logo"
-            width={100}
-            height={100}
+            width={defaultwidth}
+            height={defaultheight}
             className="rounded-xl"
           />
         )}

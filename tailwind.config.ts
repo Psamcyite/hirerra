@@ -1,5 +1,5 @@
 import type { Config } from "tailwindcss";
-import { DEFAULT_CIPHERS } from "tls";
+import tailwindcssAnimate from "tailwindcss-animate";
 
 const config: Config = {
     darkMode: ["class"],
@@ -15,7 +15,7 @@ const config: Config = {
   			xl: '768px',
   			'2xl': '768px'
   		},
-  		center: 'true',
+  		center: true,
   		padding: {
   			DEFAULT: '1.5rem'
   		}
@@ -70,6 +70,6 @@ const config: Config = {
   		}
   	}
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [tailwindcssAnimate],
 };
 export default config;

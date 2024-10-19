@@ -1,9 +1,6 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider        = "prisma-client-js"
   previewFeatures = ["fullTextSearch"]
@@ -20,7 +17,7 @@ model Job {
   slug             String   @unique
   title            String
   type             String
-  description      String?  // Optional
+  description      String?  @db.Text
   salary           Int
   companyName      String
   location         String?  // Optional
@@ -33,4 +30,19 @@ model Job {
   updatedAt        DateTime @updatedAt
 
   @@map("jobs")
+}
+
+model User {
+  id         Int      @id @default(autoincrement())
+  clerkId    String   @unique
+  email      String   @unique
+  password   String?  // Optional password field
+  role       Role     @default(USER) // Role field added
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+enum Role {
+  USER
+  ADMIN
 }

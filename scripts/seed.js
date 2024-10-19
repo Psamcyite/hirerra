@@ -1,4 +1,4 @@
-import { placeholderJobs } from "./placeholder-data";
+import { placeholderJobs } from "./placeholder-data.js";
 import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
@@ -6,13 +6,16 @@ const prisma = new PrismaClient();
 async function main() {
   await Promise.all(
     placeholderJobs.map(async (job) => {
-      await prisma.job.upsert({
-        where: {
-          slug: job.slug,
-        },
-        update: job,
-        create: job,
-      });
+      try {
+        const result = await prisma.job.upsert({
+          where: { slug: job.slug },
+          update: job,
+          create: job,
+        });
+        console.log(`Successfully upserted job: ${result.title}`);
+      } catch (error) {
+        console.error(`Failed to upsert job: ${job.title}`, error);
+      }
     })
   );
 }
