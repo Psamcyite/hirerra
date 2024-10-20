@@ -5,8 +5,8 @@ import { isAdmin } from "@/lib/utils";
 import { currentUser } from "@clerk/nextjs/server";
 import { del } from "@vercel/blob";
 import { revalidatePath } from "next/cache";
-import { redirect } from "next/navigation";
 
+// Define the FormState type
 type FormState = { error?: string } | undefined;
 
 export async function approveSubmission(
@@ -14,7 +14,7 @@ export async function approveSubmission(
   formData: FormData,
 ): Promise<FormState> {
   try {
-    const jobId = parseInt(formData.get("jobId") as string);
+    const jobId = parseInt(formData.get("jobId") as string, 10);
 
     const user = await currentUser();
 
@@ -42,7 +42,7 @@ export async function deleteJob(
   formData: FormData,
 ): Promise<FormState> {
   try {
-    const jobId = parseInt(formData.get("jobId") as string);
+    const jobId = parseInt(formData.get("jobId") as string, 10);
 
     const user = await currentUser();
 
@@ -71,5 +71,6 @@ export async function deleteJob(
     return { error: message };
   }
 
-  redirect("/admin");
+  // Redirect to the admin dashboard after deletion
+  return { error: undefined }; // You can also handle the redirect here or in the component
 }
