@@ -2,7 +2,7 @@ import { PrismaClient } from '@prisma/client';
 
 declare global {
   // Declaring a global variable to hold the Prisma client in development mode
-  var prisma: PrismaClient | undefined;
+  let prisma: PrismaClient | undefined;
 }
 
 const prisma = global.prisma || new PrismaClient();
